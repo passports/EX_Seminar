@@ -16,10 +16,10 @@ page 123456702 "Seminar List"
                 field("Minimum Participants"; "Minimum Participants") { }
                 field("Maximum Participants"; "Maximum Participants") { }
             }
-        } 
+        }
         area(factboxes)
         {
-                      systempart("Links"; Links) { }
+            systempart("Links"; Links) { }
             systempart("Notes"; Notes) { }
         }
     }
@@ -32,14 +32,9 @@ page 123456702 "Seminar List"
             {
                 action("Co&mments")
                 {
-                    //RunObject=page "CSD Seminar Comment Sheet";
-                    //RunPageLink = "Table Name"= const(Seminar),
-                    // "No."=field("No.");
-
+                  //  RunObject = page "CSD Seminar Comment Sheet";
+                   // RunPageLink = "Table Name" = const (Seminar), "No." = field ("No.");
                     Image = Comment;
-                    Promoted = true;
-                    PromotedIsBig = true;
-                    PromotedOnly = true;
                 }
             }
         }
