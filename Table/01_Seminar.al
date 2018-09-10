@@ -1,8 +1,8 @@
 table 123456701 "CSD Seminar"
 {
     DataClassification = ToBeClassified;
-LookupPageId = "Seminar List";
-DrillDownPageId ="Seminar List";
+    LookupPageId = "Seminar List";
+    DrillDownPageId = "Seminar List";
     fields
     {
         field(10; "No."; Code[20])
@@ -177,23 +177,24 @@ DrillDownPageId ="Seminar List";
         "Last Date Modified" := Today;
     end;
 
-procedure AssisEdit():Boolean;
- 
-begin
-    with Seminar do begin
-        Seminar := Rec;
-        SeminarSetup.Get;
-        SeminarSetup.TestField("Seminar Nos.");
+    procedure AssisEdit(): Boolean;
 
-        if NoSeriesMgt.SelectSeries(SeminarSetup."Seminar Nos.",xRec."No.","No. Series") then begin
-            
-            NoSeriesMgt.SetSeries("No.");
-            rec := Seminar;
-            exit(true);
+    begin
+        with Seminar do
+        begin
+            Seminar := Rec;
+            SeminarSetup.Get;
+            SeminarSetup.TestField("Seminar Nos.");
+
+            if NoSeriesMgt.SelectSeries(SeminarSetup."Seminar Nos.", xRec."No.", "No. Series") then begin
+
+                NoSeriesMgt.SetSeries("No.");
+                rec := Seminar;
+                exit(true);
 
 
+            end;
         end;
     end;
-end;
 
 }
