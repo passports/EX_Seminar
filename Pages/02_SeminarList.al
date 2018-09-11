@@ -1,7 +1,13 @@
-page 123456702 "Seminar List"
+page 123456702"CSD Seminar List"
+// CSD1.00 - 2018-01-01 - D. E. Veloper
+// Chapter 5 - Lab 3-6
 {
+    Caption='Seminar List';
     PageType = List;
     SourceTable = "CSD Seminar";
+    Editable = false;
+    CardPageId = 123456701;
+    UsageCategory = Lists;
 
     layout
     {
@@ -9,19 +15,36 @@ page 123456702 "Seminar List"
         {
             repeater(Group)
             {
-                field("No."; "No.") { }
-                field(Name; Name) { }
-                field("Seminar Duration"; "Seminar Duration") { }
-                field("Seminar Price"; "Seminar Price") { }
-                field("Minimum Participants"; "Minimum Participants") { }
-                field("Maximum Participants"; "Maximum Participants") { }
+                field("No."; "No.")
+                {
+                }
+                field(Name; Name)
+                {
+                }
+                field("Seminar Duration";"Seminar Duration")
+                {
+                }
+                field("Seminar Price"; "Seminar Price")
+                {
+                }
+                field("Minimum Participants"; "Minimum Participants")
+                {
+                }
+                field("Maximum Participants"; "Maximum Participants")
+                {
+                }
             }
         }
-        area(factboxes)
+        area(FactBoxes)
         {
-            systempart("Links"; Links) { }
-            systempart("Notes"; Notes) { }
+            systempart("Links"; Links)
+            {
+            }
+            systempart("Notes"; Notes)
+            {
+            }
         }
+
     }
 
     actions
@@ -32,9 +55,12 @@ page 123456702 "Seminar List"
             {
                 action("Co&mments")
                 {
-                  //  RunObject = page "CSD Seminar Comment Sheet";
-                   // RunPageLink = "Table Name" = const (Seminar), "No." = field ("No.");
+                    RunObject=page"CSD Seminar Comment Sheet";
+                    RunPageLink = "Table Name"=const(Seminar),"No."=field("No.");
                     Image = Comment;
+                    Promoted = true;
+                    PromotedIsBig = true;
+                    PromotedOnly = true;
                 }
             }
         }

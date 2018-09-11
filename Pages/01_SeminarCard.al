@@ -1,4 +1,7 @@
-page 123456701 "CSD Serminar"
+page 123456701"CSD Seminar Card"
+// CSD1.00 - 2018-01-01 - D. E. Veloper
+// Chapter 5 - Lab 2-4 & Lab 2-5
+
 {
     PageType = Card;
     SourceTable = "CSD Seminar";
@@ -11,40 +14,58 @@ page 123456701 "CSD Serminar"
             {
                 field("No."; "No.")
                 {
-                    AssistEdit = true;
+                    AssistEdit=true;
                     trigger OnAssistEdit();
-
                     begin
-                        if AssisEdit then begin
+                        if AssistEdit then
                             CurrPage.Update;
-                        end;
                     end;
                 }
-                field(Name; Name) { }
-                field("Search Name"; "Search Name") { }
-                field("Seminar Duration"; "Seminar Duration") { }
-                field("Minimum Participants"; "Minimum Participants") { }
-                field("Maximum Participants"; "Maximum Participants") { }
-                field(Blocked; Blocked) { }
-                field("Last Date Modified"; "Last Date Modified") { }
-
-
-
-
+                field(Name; Name)
+                {
+                }
+                field("Search Name"; "Search Name")
+                {
+                }
+                field("Seminar Duration";"Seminar Duration")
+                {
+                }
+                field("Minimum Participants"; "Minimum Participants")
+                {
+                }
+                field("Maximum Participants"; "Maximum Participants")
+                {
+                }
+                field(Blocked; Blocked)
+                {
+                }
+                field("Last Date Modified"; "Last Date Modified")
+                {
+                }
             }
-
-            group(Invoiceing)
+            group(Invoicing)
             {
-                field("Gen. Prod Posting Group"; "Gen. Prod Posting Group") { }
-                field("VAT Prod Posting Group"; "VAT Prod Posting Group") { }
-                field("Seminar Price"; "Seminar Price") { }
+                field("Gen. Prod. Posting Group"; "Gen. Prod. Posting Group")
+                {
+                }
+                field("VAT Prod. Posting Group"; "VAT Prod. Posting Group")
+                {
+                }
+                field("Seminar Price"; "Seminar Price")
+                {
+                }
             }
         }
         area(FactBoxes)
         {
-            systempart("Links"; Links) { }
-            systempart("Notes"; Notes) { }
+            systempart("Links"; Links)
+            {
+            }
+            systempart("Notes"; Notes)
+            {
+            }
         }
+
     }
 
     actions
@@ -55,9 +76,8 @@ page 123456701 "CSD Serminar"
             {
                 action("Co&mments")
                 {
-                    RunObject=page "CSD Seminar Comment Sheet";
-                    RunPageLink = "Table Name"= const(Seminar), "No."=field("No.");
-
+                    RunObject=page"CSD Seminar Comment Sheet";
+                    RunPageLink = "Table Name"=const(Seminar),"No."=field("No.");
                     Image = Comment;
                     Promoted = true;
                     PromotedIsBig = true;
@@ -66,7 +86,4 @@ page 123456701 "CSD Serminar"
             }
         }
     }
-
-    var
-        myInt: Integer;
 }
