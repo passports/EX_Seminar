@@ -3,11 +3,12 @@ page 123456710 "CSD Seminar Registration"
     // CSD1.00 - 2018-01-01 - D. E. Veloper
     //   Chapter 6 - Lab 3-1
     //     - Created new page
+    //   Chapter 7 - Lab 5-8
+    //     - Added Post Action  
 
     Caption = 'Seminar Registration';
     PageType = Document;
     SourceTable = "CSD Seminar Reg. Header";
-    UsageCategory = tasks;
 
     layout
     {
@@ -58,11 +59,9 @@ page 123456710 "CSD Seminar Registration"
                 {
                 }
             }
-
-            part(seminarRegistrationLines; "CSD Seminar Reg. Subpage")
+            part(SeminarRegistrationLines; "CSD Seminar Reg. Subpage")
             {
                 Caption = 'Lines';
-
                 SubPageLink = "Document No." = field ("No.");
             }
             group("Seminar Room")
@@ -110,12 +109,10 @@ page 123456710 "CSD Seminar Registration"
             part("Seminar Details FactBox"; "CSD Seminar Details FactBox")
             {
                 SubPageLink = "No." = field ("Seminar No.");
-
             }
-
             part("Customer Details FactBox"; "Customer Details FactBox")
             {
-                Provider = seminarRegistrationLines;
+                Provider = SeminarRegistrationLines;
                 SubPageLink = "No." = field ("Bill-to Customer No.");
             }
 
@@ -141,7 +138,7 @@ page 123456710 "CSD Seminar Registration"
                     Image = Comment;
                     RunObject = Page 123456706;
                     RunPageLink = "No." = Field ("No.");
-                    RunPageView = where ("Table Name" = Const ("Seminar Registration"));
+                    RunPageView = where ("Table Name" = const("Seminar Registration"));
                 }
                 action("&Charges")
                 {
@@ -150,6 +147,19 @@ page 123456710 "CSD Seminar Registration"
                     RunObject = Page 123456724;
                     RunPageLink = "Document No." = Field ("No.");
                 }
+            }
+        }
+        area(Processing)
+        {
+            action("&Post")
+            {
+                Caption = '&Post';
+                Image = PostDocument;
+                Promoted = true;
+                PromotedIsBig = true;
+                PromotedCategory = Process;
+                ShortcutKey = F9;
+                RunObject = codeunit "CSD Seminar-Post (Yes/No)";
             }
         }
     }
